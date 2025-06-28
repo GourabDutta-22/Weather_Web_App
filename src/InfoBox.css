@@ -1,0 +1,37 @@
+.InfoBox{
+    text-align:center;
+}
+
+.cardContainer{
+    display:flex;
+    justify-content:center;
+}
+
+.InfoBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.cardContainer {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.cardContainer:hover {
+  transform: scale(1.02);
+}
+
+.MuiCard-root {
+  border-radius: 16px !important;
+  background: #ffffff;
+}
+
+.MuiTypography-root {
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
+
+
