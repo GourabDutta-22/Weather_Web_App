@@ -7,11 +7,12 @@ export default function SearchBox({ updateInfo }) {
     let [city, setCity] = useState("");
     let [error, setError] = useState(false);
 
-    const API_URL = "http://api.openweathermap.org/data/2.5/weather";
-    const API_KEY = "f20b9f54780faafeb403e16de975b898";
+    const API_URL = import.meta.env.VITE_API_URL;
+    const API_KEY = import.meta.env.VITE_API_KEY;
 
     let getWeatherInfo = async () => {
         try {
+
             let response = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric`);
             let jsonResponse = await response.json();
             let result = {
@@ -42,7 +43,7 @@ export default function SearchBox({ updateInfo }) {
             let newInfo = await getWeatherInfo();
             updateInfo(newInfo);
             setCity("");
-        }catch(error){
+        } catch (error) {
             setError(true);
         }
     }
@@ -60,7 +61,7 @@ export default function SearchBox({ updateInfo }) {
                 />
                 <br></br> <br></br>
                 <Button variant="contained" type="submit">Search</Button>
-                {error && <p style={{color:"red"}} >No such place found!</p>}
+                {error && <p style={{ color: "red" }} >No such place found!</p>}
             </form>
         </div>
     )
